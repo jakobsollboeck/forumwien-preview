@@ -52,6 +52,21 @@
 			flyerBtn.addEventListener('click', () => lightbox.showModal());
 		}
 
+		// --- Zurück-nach-oben-Button ---
+		const backToTop = document.getElementById('backToTop');
+		if (backToTop) {
+			const onScroll = () => {
+				backToTop.classList.toggle('is-visible', window.scrollY > 400);
+			};
+			window.addEventListener('scroll', onScroll, { passive: true });
+			onScroll();
+			backToTop.addEventListener('click', (e) => {
+				e.preventDefault();
+				const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+				window.scrollTo({ top: 0, behavior: behavior });
+			});
+		}
+
 		// --- Alle <dialog> schließbar: X-Button und Klick auf Backdrop (ESC ist nativ) ---
 		document.querySelectorAll('dialog').forEach((dialog) => {
 			dialog.querySelectorAll('[data-close]').forEach((btn) => {

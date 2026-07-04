@@ -338,6 +338,26 @@ strong { color: var(--red); }
 .dialog__close:hover { color: var(--red); }
 .dialog .btn { margin-top: 1rem; }
 
+/* --- Zurück-nach-oben-Button --- */
+.back-to-top {
+	position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 90;
+	display: flex; align-items: center; justify-content: center;
+	width: 48px; height: 48px; border-radius: 50%;
+	background: var(--red); color: #fff;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+	opacity: 0; visibility: hidden; transform: translateY(12px); pointer-events: none;
+	transition: opacity var(--transition), transform var(--transition), background var(--transition);
+}
+.back-to-top.is-visible { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
+.back-to-top:hover, .back-to-top:focus-visible { text-decoration: none; background: var(--red-dark); }
+.back-to-top.is-visible:hover { transform: translateY(-3px); }
+@supports (padding: max(0px)) {
+	.back-to-top {
+		right: max(1.25rem, env(safe-area-inset-right));
+		bottom: max(1.25rem, env(safe-area-inset-bottom));
+	}
+}
+
 /* --- Scroll-Reveal (nur mit JS versteckt, sonst bleibt Inhalt sichtbar) --- */
 .js [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
 .js [data-reveal].is-visible { opacity: 1; transform: none; }
