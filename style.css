@@ -203,6 +203,53 @@ strong { color: var(--red); }
 	transition: transform var(--transition);
 }
 .offer__media img:hover { transform: scale(1.02); }
+
+/* Dancing-4-Kids-Flyer: vollständig sichtbar (nicht gecroppt) */
+.offer__media--flyer { display: none; }
+.offer__media--flyer img {
+	aspect-ratio: auto;
+	object-fit: contain;
+	width: 100%;
+	max-height: 620px;
+	background: var(--white);
+	padding: .75rem;
+}
+.offer__media--flyer img:hover { transform: none; }
+
+/* Mobiler „Mehr Informationen“-Button (nur mobil sichtbar) */
+.offer__flyer-mobile { margin-top: .75rem; }
+
+/* Klickbarer Flyer (öffnet Lightbox) */
+.flyer-preview-button {
+	display: block; width: 100%; padding: 0; margin: 0;
+	border: 0; background: none; cursor: zoom-in;
+}
+.flyer-preview-button img { transition: transform var(--transition), box-shadow var(--transition); border-radius: var(--radius); }
+.flyer-preview-button:hover img { transform: scale(1.02); box-shadow: var(--shadow-hover); }
+
+/* --- Lightbox --- */
+.lightbox {
+	border: 0; padding: 0; margin: auto; background: transparent;
+	max-width: 100vw; max-height: 100vh; width: 100%; height: 100%;
+	overflow: visible;
+}
+.lightbox[open] { display: flex; align-items: center; justify-content: center; }
+.lightbox::backdrop { background: rgba(0, 0, 0, .82); }
+.lightbox img {
+	max-width: min(92vw, 900px); max-height: 92vh;
+	width: auto; height: auto; object-fit: contain;
+	border-radius: var(--radius); box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+}
+.lightbox__close {
+	position: fixed; top: 1.25rem; left: 1.25rem; z-index: 1;
+	width: 48px; height: 48px; border: 0; border-radius: 50%;
+	background: rgba(255, 255, 255, .92); color: var(--ink);
+	font-size: 1.9rem; line-height: 1; cursor: pointer;
+	display: flex; align-items: center; justify-content: center;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+	transition: background var(--transition), transform var(--transition);
+}
+.lightbox__close:hover, .lightbox__close:focus-visible { background: #fff; color: var(--red); transform: scale(1.05); }
 .offer__body h3 { font-size: 1.6rem; margin: 0 0 .8rem; }
 .offer__body ul { padding-left: 1.2rem; margin: .5rem 0; }
 .offer__body li { margin-bottom: .35rem; }
@@ -282,9 +329,29 @@ strong { color: var(--red); }
 .dialog__close:hover { color: var(--red); }
 .dialog .btn { margin-top: 1rem; }
 
-/* --- Scroll-Reveal --- */
-[data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-[data-reveal].is-visible { opacity: 1; transform: none; }
+/* --- Scroll-Reveal (nur mit JS versteckt, sonst bleibt Inhalt sichtbar) --- */
+.js [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.js [data-reveal].is-visible { opacity: 1; transform: none; }
+
+/* --- Hero-Intro-Animation beim Laden (dezent, leicht zeitversetzt) --- */
+@keyframes hero-intro {
+	from { opacity: 0; transform: translateY(20px); }
+	to   { opacity: 1; transform: none; }
+}
+.hero__logo,
+.hero__title,
+.hero__lead,
+.hero__note,
+.hero__actions,
+.hero__image {
+	animation: hero-intro .7s ease both;
+}
+.hero__logo    { animation-delay: .05s; }
+.hero__title   { animation-delay: .15s; }
+.hero__lead    { animation-delay: .25s; }
+.hero__note    { animation-delay: .35s; }
+.hero__actions { animation-delay: .45s; }
+.hero__image   { animation-delay: .30s; }
 
 /* ============================================================
    Responsive
@@ -311,11 +378,15 @@ strong { color: var(--red); }
 
 	.offer { grid-template-columns: 1fr 1.1fr; gap: 2.5rem; }
 	.offer--reverse .offer__media { order: 2; }
+
+	/* Dancing 4 Kids: Flyer auf Desktop zeigen, Mobile-Button ausblenden */
+	.offer__media--flyer { display: block; }
+	.offer__flyer-mobile { display: none; }
 }
 
 /* --- Reduced Motion --- */
 @media (prefers-reduced-motion: reduce) {
 	html { scroll-behavior: auto; }
-	*, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
-	[data-reveal] { opacity: 1; transform: none; }
+	*, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+	.js [data-reveal] { opacity: 1; transform: none; }
 }

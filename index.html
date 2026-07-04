@@ -14,6 +14,7 @@
 	<meta property="og:locale" content="de_AT">
 
 	<link rel="stylesheet" href="style.css">
+	<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -176,8 +177,10 @@
 			</div>
 
 			<div class="offer offer--reverse" data-reveal>
-				<div class="offer__media">
-					<img src="./bilder/angebote/kindertraining.jpg" alt="Kindertanzen beim UTSC Forum Wien" loading="lazy">
+				<div class="offer__media offer__media--flyer">
+					<button type="button" class="flyer-preview-button" aria-label="Dancing 4 Kids Flyer groß anzeigen">
+						<img src="./bilder/Flyer_Kindertanzen.png" alt="Flyer Dancing 4 Kids – Kindertanzen beim UTSC Forum Wien" loading="lazy">
+					</button>
 				</div>
 				<div class="offer__body">
 					<h3>Dancing 4 Kids</h3>
@@ -188,7 +191,9 @@
 						<li>Die ersten beiden Stunden sind gratis!</li>
 					</ul>
 					<p>Mindestalter: 6 Jahre</p>
-					<p><a class="btn btn--small" href="./bilder/kindertanzen_flyer.jpg" target="_blank" rel="noopener">Flyer ansehen</a></p>
+					<p class="offer__flyer-mobile">
+						<a class="btn btn--primary" href="./bilder/Flyer_Kindertanzen.png" target="_blank" rel="noopener">Mehr Informationen</a>
+					</p>
 				</div>
 			</div>
 
@@ -197,7 +202,7 @@
 
 	<!-- 4. Standort / Säle -->
 	<section class="saal" id="saal">
-		<div class="saal__overlay">
+		<div class="saal__overlay" data-reveal>
 			<p class="saal__text">
 				<span>2 klimatisierte Säle</span>
 				<span>300&thinsp;m² Schwebeparkett</span>
@@ -298,7 +303,7 @@
 	<section class="section" id="kontakt">
 		<div class="container">
 			<h2 class="section__title">Anfahrt &amp; Kontakt</h2>
-			<div class="contact">
+			<div class="contact" data-reveal>
 				<div class="contact__info">
 					<h3>Kontakt</h3>
 					<address>
@@ -327,7 +332,7 @@
 
 <!-- Footer -->
 <footer class="site-footer">
-	<div class="container site-footer__inner">
+	<div class="container site-footer__inner" data-reveal>
 		<div class="verbaende">
 			<span class="verbaende__label">Mitgliedschaften</span>
 			<img src="./bilder/logo_oetsv.jpg" alt="Österreichischer Tanzsportverband (ÖTSV)" loading="lazy">
@@ -392,6 +397,12 @@
 
 		<button class="btn btn--primary" data-close type="button">Schließen</button>
 	</div>
+</dialog>
+
+<!-- Lightbox: Dancing-4-Kids-Flyer (Desktop) -->
+<dialog class="lightbox" id="flyerLightbox" aria-label="Flyer Dancing 4 Kids – Großansicht">
+	<button class="lightbox__close" data-close aria-label="Schließen">&times;</button>
+	<img src="./bilder/Flyer_Kindertanzen.png" alt="Flyer Dancing 4 Kids – Kindertanzen beim UTSC Forum Wien">
 </dialog>
 
 <script src="script.js"></script>
