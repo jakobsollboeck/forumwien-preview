@@ -158,9 +158,18 @@ strong { color: var(--red); }
 .hero__note { background: var(--orange-light); border-left: 4px solid var(--orange); padding: 1rem 1.25rem; border-radius: 8px; margin: 0 0 1.5rem; max-width: 50ch; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: .9rem; }
 .hero__image {
+	display: none; /* mobil verborgen – dort zeigt .hero__image-mobile das Bild */
 	background: url('./bilder/bg-couple.png') no-repeat center center;
 	background-size: contain;
 	min-height: 320px;
+}
+/* Mobiles Hero-Bild (unter der Headline); Desktop nutzt weiterhin .hero__image */
+.hero__image-mobile {
+	display: block;
+	width: 100%;
+	max-height: 300px;
+	object-fit: contain;
+	margin: .25rem 0 1.25rem;
 }
 
 /* --- Sections --- */
@@ -340,18 +349,20 @@ strong { color: var(--red); }
 }
 .hero__logo,
 .hero__title,
+.hero__image-mobile,
 .hero__lead,
 .hero__note,
 .hero__actions,
 .hero__image {
 	animation: hero-intro .7s ease both;
 }
-.hero__logo    { animation-delay: .05s; }
-.hero__title   { animation-delay: .15s; }
-.hero__lead    { animation-delay: .25s; }
-.hero__note    { animation-delay: .35s; }
-.hero__actions { animation-delay: .45s; }
-.hero__image   { animation-delay: .30s; }
+.hero__logo         { animation-delay: .05s; }
+.hero__title        { animation-delay: .15s; }
+.hero__image-mobile { animation-delay: .22s; }
+.hero__lead         { animation-delay: .28s; }
+.hero__note         { animation-delay: .38s; }
+.hero__actions      { animation-delay: .48s; }
+.hero__image        { animation-delay: .30s; }
 
 /* ============================================================
    Responsive
@@ -371,7 +382,8 @@ strong { color: var(--red); }
 	.nav__menu a { padding: .5rem .8rem; }
 
 	.hero__inner { grid-template-columns: 1.1fr 1fr; padding: 3.5rem 1.25rem; }
-	.hero__image { min-height: 460px; align-self: stretch; }
+	.hero__image { display: block; min-height: 460px; align-self: stretch; }
+	.hero__image-mobile { display: none; }
 
 	.cards { grid-template-columns: repeat(4, 1fr); }
 	.team { grid-template-columns: repeat(4, 1fr); }
