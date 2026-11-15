@@ -199,6 +199,7 @@ strong { color: var(--red); }
 	background: var(--white); border-radius: var(--radius); padding: 1.5rem;
 	box-shadow: var(--shadow); border-top: 4px solid var(--red);
 	transition: transform var(--transition), box-shadow var(--transition);
+	min-width: 0; overflow-wrap: anywhere; /* lange Wörter umbrechen -> kein Überlauf auf schmalen Phones */
 }
 .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
 .card__tag {
@@ -414,6 +415,12 @@ strong { color: var(--red); }
 	/* Dancing 4 Kids: Flyer auf Desktop zeigen, Mobile-Button ausblenden */
 	.offer__media--flyer { display: block; }
 	.offer__flyer-mobile { display: none; }
+}
+
+/* --- Hero-Headline auf Smartphones größer & prominenter --- */
+/* 12.5vw hält "UTSC FORUM" einzeilig -> harmonischer Umbruch "UTSC FORUM / WIEN", kein Überlauf */
+@media (max-width: 575.98px) {
+	.hero__title { font-size: clamp(2.5rem, 12.5vw, 3.6rem); margin: 0 0 1.25rem; }
 }
 
 /* --- Reduced Motion --- */
