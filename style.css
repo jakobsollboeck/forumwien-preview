@@ -275,7 +275,7 @@ strong { color: var(--red); }
 /* --- Saal / Standort --- */
 .saal {
 	position: relative; min-height: 60vh;
-	background: url('./bilder/UTSC Saal.png') no-repeat center 35%; background-size: cover;
+	background: url('./bilder/utsc-saal.webp') no-repeat center 35%; background-size: cover;
 	display: flex; align-items: center; justify-content: center;
 	padding: 2rem 1.25rem;
 }
