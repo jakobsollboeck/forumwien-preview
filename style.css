@@ -310,9 +310,18 @@ strong { color: var(--red); }
 .trainer__name { font-size: 1.25rem; margin: 0 0 .5rem; }
 .trainer__role { margin: 0; color: var(--muted); font-size: .95rem; }
 
-/* --- Facebook --- */
-.fb-card { text-align: center; max-width: 640px; margin: 0 auto; }
-.fb-card p { margin-bottom: 1.5rem; }
+/* --- Instagram --- */
+.ig {
+	max-width: 600px; margin: 0 auto; padding: 2rem 1.5rem; text-align: center;
+	background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.ig .btn { display: inline-flex; align-items: center; gap: .5rem; }
+.ig__icon { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; }
+/* Profil-Embed: Kopfzeile + 2 Reihen à 3 quadratische Beiträge */
+.ig__frame {
+	display: block; width: 100%; border: 0; margin-bottom: 1.5rem;
+	height: calc(165px + min(552px, 100vw - 5.5rem) * 2 / 3);
+}
 
 /* --- Kontakt --- */
 .contact { display: grid; gap: 2rem; }
