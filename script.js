@@ -50,13 +50,6 @@
 			});
 		});
 
-		// --- Flyer-Lightbox (Desktop) öffnen ---
-		const lightbox = document.getElementById('flyerLightbox');
-		const flyerBtn = document.querySelector('.flyer-preview-button');
-		if (lightbox && flyerBtn && typeof lightbox.showModal === 'function') {
-			flyerBtn.addEventListener('click', () => lightbox.showModal());
-		}
-
 		// --- Zurück-nach-oben-Button ---
 		const backToTop = document.getElementById('backToTop');
 		if (backToTop) {
