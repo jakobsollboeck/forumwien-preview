@@ -23,7 +23,7 @@
 	<meta name="twitter:description" content="Gruppentrainings Latein &amp; Standard, Turniertanz und Dancing 4 Kids in 1060 Wien. Zwei Mal kostenlos schnuppern.">
 	<meta name="twitter:image" content="https://jakobsollboeck.github.io/forumwien-preview/bilder/social-preview-logo.png">
 
-	<link rel="stylesheet" href="style.css?v=7">
+	<link rel="stylesheet" href="style.css?v=11">
 	<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -44,6 +44,7 @@
 		<ul class="nav__menu" id="navMenu">
 			<li><a href="#trainings">Gruppentrainings</a></li>
 			<li><a href="#angebote">Angebot</a></li>
+			<li><a href="#kids">Dancing 4 Kids</a></li>
 			<li><a href="#saal">Säle</a></li>
 			<li><a href="#team">Team</a></li>
 			<li><a href="#kontakt">Anfahrt &amp; Kontakt</a></li>
@@ -136,13 +137,11 @@
 		<div class="container">
 			<h2 class="section__title">Unser Angebot</h2>
 
-			<div class="offer" data-reveal>
-				<div class="offer__media">
-					<img src="./bilder/angebote/anfaenger.jpg" alt="Anfängertraining im Tanzsaal" loading="lazy">
-				</div>
-				<div class="offer__body">
-					<h3>Für Beginner</h3>
-					<p>Das Anfängertraining für Tanzsport richtet sich an alle Paare, die ihr tänzerisches Können erweitern möchten:</p>
+			<div class="offers" data-reveal>
+
+				<article class="card offer-card">
+					<h3 class="card__title">Tanzen als Hobbysport/Breitensport</h3>
+					<p>Das Training richtet sich an alle Tanzsportbegeisterten, die ihr tänzerisches Können erweitern möchten.</p>
 					<ul>
 						<li>jeden Dienstag, von 19:00 bis 20:30 Uhr (ausgenommen Schulferien)</li>
 						<li>wöchentlich abwechselnd Standard und Latein</li>
@@ -151,15 +150,10 @@
 						<li>alle zehn Tänze – mit jeweils einer eigenen Choreographie</li>
 						<li>geleitete Übungsstunden am Freitag zur Wiederholung der im Gruppentraining erarbeiteten Choreographien</li>
 					</ul>
-				</div>
-			</div>
+				</article>
 
-			<div class="offer offer--reverse" data-reveal>
-				<div class="offer__media">
-					<img src="./bilder/angebote/fortgeschrittene.jpg" alt="Fortgeschrittene Tänzer beim Turniertanz" loading="lazy">
-				</div>
-				<div class="offer__body">
-					<h3>Für Fortgeschrittene</h3>
+				<article class="card offer-card">
+					<h3 class="card__title">Für Fortgeschrittene</h3>
 					<p>Betreuung durch nationale und internationale Spitzentrainer</p>
 					<ul>
 						<li>Privatstunden bei nationalen und internationalen Spitzentrainern</li>
@@ -168,47 +162,35 @@
 						<li>Durchführung von Turnieren</li>
 						<li>Rückhalt in Österreichs größtem Dachverband, der Sportunion</li>
 					</ul>
-				</div>
-			</div>
+				</article>
 
-			<div class="offer" data-reveal>
-				<div class="offer__media">
-					<img src="./bilder/angebote/veranstaltungen.jpg" alt="Veranstaltung des UTSC Forum Wien" loading="lazy">
-				</div>
-				<div class="offer__body">
-					<h3>Alljährliche Veranstaltungen</h3>
-					<p>Der UTSC Forum Wien führt auch eigene Veranstaltungen durch</p>
-					<ul>
-						<li>Ausrichtung eigener Turniere</li>
-						<li>Sommerheuriger</li>
-						<li>Weihnachtsfeier</li>
-						<li>Sommertrainingslager</li>
-						<li>Trainingstage im Winter</li>
-					</ul>
-				</div>
 			</div>
+		</div>
+	</section>
 
-			<div class="offer offer--reverse" data-reveal>
-				<div class="offer__media offer__media--flyer">
-					<button type="button" class="flyer-preview-button" aria-label="Dancing 4 Kids Flyer groß anzeigen">
-						<img src="./bilder/Flyer_Kindertanzen.png" alt="Flyer Dancing 4 Kids – Kindertanzen beim UTSC Forum Wien" loading="lazy">
-					</button>
-				</div>
-				<div class="offer__body">
-					<h3>Dancing 4 Kids</h3>
-					<ul>
-						<li>Hast du Spaß an Bewegung zur Musik?</li>
-						<li>Möchtest du andere mit deinen Moves beeindrucken?</li>
-						<li>Komm vorbei zum Schnuppertraining!</li>
-						<li>Die ersten beiden Stunden sind gratis!</li>
-					</ul>
-					<p>Mindestalter: 6 Jahre</p>
-					<p class="offer__flyer-mobile">
-						<a class="btn btn--primary" href="./bilder/Flyer_Kindertanzen.png" target="_blank" rel="noopener">Mehr Informationen</a>
-					</p>
-				</div>
+	<!-- 3b. Dancing 4 Kids -->
+	<section class="section" id="kids">
+		<div class="container">
+			<h2 class="section__title">Dancing 4 Kids</h2>
+			<p class="kids__subtitle">Bewegung, Musik und jede Menge Tanzspaß!</p>
+			<div class="kids" data-reveal>
+				<ul class="kids__tiles">
+					<li class="card kids__tile">
+						<svg class="kids__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+						Hast du Spaß an Bewegung zur Musik?
+					</li>
+					<li class="card kids__tile">
+						<svg class="kids__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3l1.9 5.1L17 10l-5.1 1.9L10 17l-1.9-5.1L3 10l5.1-1.9z"/><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8z"/><path d="M18 2v4M16 4h4"/></svg>
+						Möchtest du andere mit deinen Moves beeindrucken?
+					</li>
+					<li class="card kids__tile">
+						<svg class="kids__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg>
+						Komm vorbei zum Schnuppertraining! Die ersten beiden Stunden sind gratis!
+					</li>
+				</ul>
+				<p>Informiere dich zu aktuellen Kindertrainings:</p>
+				<a class="btn btn--primary" href="mailto:magdalena.trepa@forumwien.at">Jetzt informieren</a>
 			</div>
-
 		</div>
 	</section>
 

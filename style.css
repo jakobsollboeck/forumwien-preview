@@ -227,38 +227,26 @@ strong { color: var(--red); }
 .card__meta dt { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); font-weight: 700; }
 .card__meta dd { margin: 0; }
 
-/* --- Angebote --- */
-.offer { display: grid; gap: 1.5rem; align-items: center; margin-bottom: 3rem; }
-.offer:last-child { margin-bottom: 0; }
-.offer__media img {
-	width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);
-	aspect-ratio: 4 / 3; object-fit: cover;
-	transition: transform var(--transition);
-}
-.offer__media img:hover { transform: scale(1.02); }
+/* --- Angebote (Karten im Stil der Gruppentrainings) --- */
+.offers { display: grid; gap: 1.5rem; }
+.offer-card { padding: 2rem 1.75rem; }
+.offer-card p { margin: 0 0 .8rem; }
+.offer-card ul { padding-left: 1.2rem; margin: 0; }
+.offer-card li { margin-bottom: .4rem; }
 
-/* Dancing-4-Kids-Flyer: vollständig sichtbar (nicht gecroppt) */
-.offer__media--flyer { display: none; }
-.offer__media--flyer img {
-	aspect-ratio: auto;
-	object-fit: contain;
-	width: 100%;
-	max-height: 620px;
-	background: var(--white);
-	padding: .75rem;
+/* --- Dancing 4 Kids --- */
+.kids__subtitle { text-align: center; font-size: 1.2rem; color: var(--muted); margin: -1.25rem 0 2.5rem; }
+.kids { max-width: 960px; margin: 0 auto; text-align: center; }
+.kids__tiles { list-style: none; padding: 0; margin: 0 0 2.5rem; display: grid; gap: 1.25rem; }
+.kids__tile {
+	padding: 1.75rem 1.5rem; font-size: 1.1rem;
+	display: flex; flex-direction: column; align-items: center; gap: 1rem;
 }
-.offer__media--flyer img:hover { transform: none; }
-
-/* Mobiler „Mehr Informationen“-Button (nur mobil sichtbar) */
-.offer__flyer-mobile { margin-top: .75rem; }
-
-/* Klickbarer Flyer (öffnet Lightbox) */
-.flyer-preview-button {
-	display: block; width: 100%; padding: 0; margin: 0;
-	border: 0; background: none; cursor: zoom-in;
+.kids__icon {
+	width: 40px; height: 40px; flex: none;
+	fill: none; stroke: var(--red); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
 }
-.flyer-preview-button img { transition: transform var(--transition), box-shadow var(--transition); border-radius: var(--radius); }
-.flyer-preview-button:hover img { transform: scale(1.02); box-shadow: var(--shadow-hover); }
+.kids p { margin: 0 0 1.25rem; }
 
 /* --- Lightbox --- */
 .lightbox {
@@ -283,9 +271,6 @@ strong { color: var(--red); }
 	transition: background var(--transition), transform var(--transition);
 }
 .lightbox__close:hover, .lightbox__close:focus-visible { background: #fff; color: var(--red); transform: scale(1.05); }
-.offer__body h3 { font-size: 1.6rem; margin: 0 0 .8rem; }
-.offer__body ul { padding-left: 1.2rem; margin: .5rem 0; }
-.offer__body li { margin-bottom: .35rem; }
 
 /* --- Saal / Standort --- */
 .saal {
@@ -406,17 +391,21 @@ strong { color: var(--red); }
 @media (min-width: 640px) {
 	.cards { grid-template-columns: repeat(2, 1fr); }
 	.team { grid-template-columns: repeat(2, 1fr); }
+	.kids__tiles { grid-template-columns: repeat(3, 1fr); }
 	.contact { grid-template-columns: 1fr 1fr; }
 }
 
-@media (min-width: 900px) {
+/* Desktop-Navigation erst ab 1024px, damit alle Menüpunkte einzeilig passen */
+@media (min-width: 1024px) {
 	.nav__toggle { display: none; }
 	.nav__menu {
 		position: static; transform: none; visibility: visible; box-shadow: none;
 		display: flex; gap: .25rem; padding: 0; background: none;
 	}
-	.nav__menu a { padding: .5rem .8rem; }
+	.nav__menu a { padding: .5rem .8rem; white-space: nowrap; }
+}
 
+@media (min-width: 900px) {
 	.hero__inner {
 		padding: 2.5rem 1.25rem 7rem;
 		grid-template-columns: minmax(200px, 300px) 1fr;
@@ -434,12 +423,7 @@ strong { color: var(--red); }
 	.cards { grid-template-columns: repeat(4, 1fr); }
 	.team { grid-template-columns: repeat(4, 1fr); }
 
-	.offer { grid-template-columns: 1fr 1.1fr; gap: 2.5rem; }
-	.offer--reverse .offer__media { order: 2; }
-
-	/* Dancing 4 Kids: Flyer auf Desktop zeigen, Mobile-Button ausblenden */
-	.offer__media--flyer { display: block; }
-	.offer__flyer-mobile { display: none; }
+	.offers { grid-template-columns: 1fr 1fr; gap: 2rem; }
 }
 
 /* --- Hero-Headline auf Smartphones: kräftig, darf auf zwei Zeilen umbrechen --- */
