@@ -21,17 +21,22 @@
 		}
 
 		// --- Scroll-Reveal ---
-		const revealEls = document.querySelectorAll('[data-reveal]');
+		// Ziele werden hier markiert (nicht im HTML), damit ohne JS alles sichtbar bleibt.
+		const revealEls = document.querySelectorAll([
+			'.section__title', '.kids__subtitle', '.saal', '.saal__card', '.ig', '.site-footer__inner',
+			'.cards > *', '.offers > *', '.kids__tiles > *', '.kids > p', '.kids > .btn', '.team > *', '.contact > *'
+		].join(','));
 		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		revealEls.forEach((el) => el.setAttribute('data-reveal', ''));
 		if (reduceMotion || !('IntersectionObserver' in window)) {
 			revealEls.forEach((el) => el.classList.add('is-visible'));
 		} else {
 			const observer = new IntersectionObserver((entries, obs) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add('is-visible');
-						obs.unobserve(entry.target);
-					}
+				// Gleichzeitig sichtbare Elemente nacheinander einblenden (max. 450 ms Versatz)
+				entries.filter((e) => e.isIntersecting).forEach((entry, i) => {
+					entry.target.style.setProperty('--reveal-delay', Math.min(i * 90, 450) + 'ms');
+					entry.target.classList.add('is-visible');
+					obs.unobserve(entry.target);
 				});
 			}, { threshold: 0.15 });
 			revealEls.forEach((el) => observer.observe(el));
