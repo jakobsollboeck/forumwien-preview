@@ -50,6 +50,10 @@
 			});
 		});
 
+		// --- Save-the-Date-Pop-up bei jedem Seitenaufruf öffnen (Schließen: X, Escape, Klick daneben) ---
+		const std = document.getElementById('saveTheDate');
+		if (std && typeof std.showModal === 'function') std.showModal();
+
 		// --- Zurück-nach-oben-Button ---
 		const backToTop = document.getElementById('backToTop');
 		if (backToTop) {
