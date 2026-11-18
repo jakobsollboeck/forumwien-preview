@@ -56,9 +56,12 @@
 
 		// --- Zurück-nach-oben-Button ---
 		const backToTop = document.getElementById('backToTop');
+		const stmButton = document.getElementById('stmButton');
 		if (backToTop) {
 			const onScroll = () => {
-				backToTop.classList.toggle('is-visible', window.scrollY > 400);
+				const show = window.scrollY > 400;
+				backToTop.classList.toggle('is-visible', show);
+				if (stmButton) stmButton.classList.toggle('is-visible', show);
 			};
 			window.addEventListener('scroll', onScroll, { passive: true });
 			onScroll();
