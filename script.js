@@ -32,13 +32,13 @@
 			revealEls.forEach((el) => el.classList.add('is-visible'));
 		} else {
 			const observer = new IntersectionObserver((entries, obs) => {
-				// Gleichzeitig sichtbare Elemente nacheinander einblenden (max. 450 ms Versatz)
+				// Gleichzeitig sichtbare Elemente nacheinander einblenden (150 ms Versatz, max. 600 ms)
 				entries.filter((e) => e.isIntersecting).forEach((entry, i) => {
-					entry.target.style.setProperty('--reveal-delay', Math.min(i * 90, 450) + 'ms');
+					entry.target.style.setProperty('--reveal-delay', Math.min(i * 150, 600) + 'ms');
 					entry.target.classList.add('is-visible');
 					obs.unobserve(entry.target);
 				});
-			}, { threshold: 0.15 });
+			}, { threshold: 0.12 });
 			revealEls.forEach((el) => observer.observe(el));
 		}
 
